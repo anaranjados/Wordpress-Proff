@@ -83,7 +83,7 @@ if (has_nav_menu('cities-loc')) {
 	<div class="skewed-rect" id="buy"></div>
 	<hr id="crossing-online" />
 	<p id="slogan">стань красивой<br/><span>сегодня</span></p>
-	<a id="online" href="/wp-content/themes/own/construction.php">ONLINE<br/><span>МАГАЗИН</span></a>
+	<a id="online" href="/wp-content/themes/own/opening-soon.html">ONLINE<br/><span>МАГАЗИН</span></a>
 		<img id="cart" src="/wp-content/uploads/cart.png" alt="Корзина"/>
 		<span id="focus_foot"></span>
 		<br/>

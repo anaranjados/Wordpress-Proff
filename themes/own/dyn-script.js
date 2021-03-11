@@ -1,12 +1,11 @@
 $(document).ready(function() {
 
-// * Preloader *
-var wd = $(window).width();
+// * Preloader: curtains, FF letters filled in red
+let wd = $(window).width();
 $('#curtain-f1').delay(150).css('color', '#e30613');
 $('#curtain-f2').delay(150).css('color', '#e30613');
 $('#loader-left').delay(900).animate({marginLeft: wd*(-1.1)}, 900);
 $('#loader-right').delay(900).animate({marginLeft: wd*2.16}, 900);      // iphone Xs has display aspect 19.5:9, so one side is 2.16 times wider than another (by Feb "19)
-console.log('Curtains, FF preloader filled in red');
 
 $('video').on('canplaythrough', function() {
   $('#hidden-menu').delay(9800).animate({opacity: 1}, 800);
@@ -20,8 +19,7 @@ $('video').on('canplaythrough', function() {
   		$('.fixedMenu').css('opacity', '1');
     	}
   });
-  $('header').delay(4300).animate({ marginTop: wd*(-0.062)}, 1500);
-  console.log("Menu delay, cover Chr video border, move header up"); 
+  $('header').delay(4300).animate({ marginTop: wd*(-0.062)}, 1500);	// Menu delay, cover Chr video border, move header up
 });
 
 /***** Animation on whole page (it can be left if web-client swithes off JS)*****/
@@ -36,47 +34,43 @@ $('#about-contents').css('opacity', '0');
 
 // Пример  https://codepen.io/estwo/pen/czHvi
 $('#about_sect').waypoint(function(direction) {
- if (direction === 'down') {
+ if (direction === 'down') {				// About down
     $('#thin').animate({width: 0}, 850);
 	$('#skewed-stripe').delay(500).animate({width: '53%'}, 700);
 	$('#girl').delay(1000).animate({opacity: 1}, 700);
 	$('#about-contents').delay(1000).animate({opacity: 1}, 700);
 	$('#about-f1').delay(900).animate({marginTop: wd*(-0.22), marginLeft: wd*(-0.032), opacity: 1}, 700);
 	$('#about-f2').delay(900).animate({marginTop: wd*(-0.25), marginLeft: wd*0.008, opacity: 1}, 700);
-	console.log('About dw');
 }}, {offset: '70%'});
 
 $('#girl').waypoint(function(direction) {
- if (direction === 'down') {
+ if (direction === 'down') {				// About down -reverse
 	$('#thin').delay(400).animate({width: '36%'}, 700);
 	$('#skewed-stripe').animate({width: 0}, 700);
 	$('#girl').delay(500).animate({opacity: 0}, 200);
 	$('#about-contents').delay(100).animate({opacity: 0}, 400);
 	$('#about-f1').animate({marginTop: wd*(-0.11), marginLeft: wd*(-0.084), opacity: 0}, 400);
 	$('#about-f2').animate({marginTop: wd*(-0.35), marginLeft: wd*0.1, opacity: 0}, 400);
-	console.log('About dw -rev');
 }}, {offset: '-55%'}); // С верха девушки пролистано 55%
 
 $('#about-contents').waypoint(function(direction) {
- if (direction === 'up') {
+ if (direction === 'up') {				// About up
     $('#thin').animate({width: 0}, 700);
 	$('#skewed-stripe').animate({width: '53%'}, 700);
 	$('#girl').delay(600).animate({opacity: 1}, 700);
 	$('#about-contents').delay(600).animate({opacity: 1}, 700);
 	$('#about-f1').delay(600).animate({marginTop: wd*(-0.22), marginLeft: wd*(-0.032), opacity: 1}, 700);
 	$('#about-f2').delay(600).animate({marginTop: wd*(-0.25), marginLeft: wd*0.008, opacity: 1}, 700);
-	console.log('About up');
 }}, {offset: '-25%'});
 
 $('#skewed-stripe').waypoint(function(direction) {
- if (direction === 'up') {
+ if (direction === 'up') {			// About up -reverse
 	$('#thin').delay(400).animate({width: '36%'}, 700);
 	$('#skewed-stripe').animate({width: 0}, 700);
 	$('#girl').delay(500).animate({opacity: 0}, 200);
 	$('#about-contents').delay(100).animate({opacity: 0}, 400);
 	$('#about-f1').animate({marginTop: wd*(-0.11), marginLeft: wd*(-0.084), opacity: 0}, 400);
 	$('#about-f2').animate({marginTop: wd*(-0.35), marginLeft: wd*0.1, opacity: 0}, 400);
-	console.log('About up -rev');
 }}, {offset: '85%'});
 
 $('#close-paint').addClass('not_transparent');
@@ -85,79 +79,70 @@ $('#eye-1').css('margin-top', '22%');
 $('#eye-2').css('margin-top', '-52%');
 $('#dpt_descr').css('opacity', '0');
 $('.thin-stripe-2').waypoint(function(direction) {
- if (direction === 'down') {
+ if (direction === 'down') {		// Departmens down
 	$('#eye-1').delay(500).animate({marginTop: '-26%', opacity: 1}, 800);
 	$('#eye-2').delay(500).animate({marginTop: '-8.8%', opacity: 1}, 800);
 	$('#fat-stripe').delay(500).animate({height: '2%'}, 800);
 	$('#close-paint').delay(1100).animate({right: 0}, 800);
 	$('#dpt_descr').delay(1200).animate({opacity: 1}, 700);
-	console.log('Departments dw');
 }}, {offset: '100%'});
 
 $('.thin-stripe-2').waypoint(function(direction){
-if (direction === 'down') {
+if (direction === 'down') {		// Departmens down -reverse
 	$('#eye-1').delay(400).animate({marginTop: '21%', opacity: 0}, 0);;
 	$('#eye-2').delay(400).animate({marginTop: '-51%', opacity: 0}, 0);
 	$('#fat-stripe').delay(300).animate({height: 0}, 700);
 	$('#close-paint').delay(1100).animate({right: '21%'}, 700);
 	$('#dpt_descr').animate({opacity: 0}, 700);
-	console.log('Departmens dw -rev');
 }}, {offset: '-1%'});
 
 $("#dpt-logo-1").waypoint(function(direction) {
-if (direction === 'up') {
+if (direction === 'up') {		// Departmens up
 	$('#eye-1').delay(500).animate({marginTop: '-26%', opacity: 1}, 800);
 	$('#eye-2').delay(500).animate({marginTop: '-8.8%', opacity: 1}, 800);
 	$('#fat-stripe').delay(500).animate({height: '2%'}, 800);
 	$('#close-paint').delay(1200).animate({right: 0}, 700);
 	$('#dpt_descr').delay(1200).animate({opacity: 1}, 700);
-	console.log('Departments up');
 }}, {offset: '-1%'});
 
 $('.thin-stripe-2').waypoint(function(direction){
- if (direction === 'up') {
+ if (direction === 'up') {		// Departmens up -rev
 	$('#eye-1').delay(400).animate({marginTop: '21%', opacity: 0}, 700);;
 	$('#eye-2').delay(400).animate({marginTop: '-51%'}, 700);
 	$('#fat-stripe').delay(300).animate({height: 0}, 700);
 	$('#close-paint').animate({right: '21%'}, 700);
 	$('#dpt_descr').animate({opacity: 0}, 700);
-	console.log('Departmens up -rev');
 }}, {offset: '100%'});
 
 $('#crossing-online').css('width', '0');
 $("#cart").waypoint(function(direction) {
  if (direction === 'down') {
 	$('#crossing-online').delay(200).animate({width: '57.5%'}, 800);
-	console.log('Shopline dw');
 }}, {offset: '100%'});
 	
 $('#focus_foot').waypoint(function(direction) {
  if (direction === 'down') {
 	$('#crossing-online').animate({width: 0}, 500);
-	console.log('Shopline dw -rev');
 }},{offset: '100%'});
 
 $("#contact").waypoint(function(direction) {
  if (direction === 'up') {
 	$('#crossing-online').delay(300).animate({width: '57.5%'}, 800);
-	console.log('Shopline up');
 }}, {offset: '100%'});
 	
 $("#no-scroll-bar").waypoint(function(direction) {
  if (direction === 'up') {
 	$('#crossing-online').animate({width: 0}, 500);
-	console.log('Shopline up -rev');
 }},{offset: '-1%'});
 
 $('#lines span:nth-child(7)').addClass(' not_transparent');
 $('#lines span:nth-child(8)').addClass(' not_transparent');
 $('#lines span:last-child').addClass(' not_transparent');
-$('#contact').waypoint(function(direction) {
+$('#contact').waypoint(function(direction) {	// Footer
   if (direction === 'down') {
 	$('#lines span:nth-child(7)').delay(350).animate({width: 0}, 700);
 	$('#lines span:nth-child(8)').animate({marginBottom: '18%'}, 400);
 	$('#lines span:last-child').delay(250).animate({marginLeft: '100%'}, 700);
-	console.log('Footer');
   }},{offset: '100%'});
 
 $('#slogan').waypoint(function(direction) {
@@ -165,31 +150,24 @@ $('#slogan').waypoint(function(direction) {
 	$('#lines span:nth-child(7)').animate({width: '49.6%'}, 500);
 	$('#lines span:nth-child(8)').delay(450).animate({marginBottom: 0}, 400);
 	$('#lines span:last-child').animate({marginLeft: '50.7%'}, 500);
-	console.log('Footer -rev');
   }}, {offset: '1%'});
 
-$("a").on('click', function(event) {  // Smooth anchors
+$("a").on('click', function(event) {  // animating jumps threw the #anchors
   if (this.hash !== "") {
    event.preventDefault();
-   var hash = this.hash;
+   let hash = this.hash;
    $('html, body').animate({ scrollTop: $(hash).offset().top }, 700, function(){ window.location.hash = hash;});
   }
 });
 });
 // -end of jQuery-
 
-var promise = document.querySelector('video').play();
-if (promise !== undefined) {
-    promise.catch(error => {
-        // Show a UI element to let the user manually start playback
-    }).then(() => { /* Auto-play started*/  }); }
-
 
 /* Dynamic behaviour when scrolling */
-var n = 0;
+let n = 0;
 const ele = document.querySelectorAll('#cities > li');
 document.getElementById('no-scroll-bar').addEventListener('scroll', function() {
-  var scr = document.getElementById('no-scroll-bar').scrollTop;
+  let scr = document.getElementById('no-scroll-bar').scrollTop;
   const wd = document.documentElement.clientWidth *0.02; // less - later
   if ( scr > wd*(n+1) && scr <= wd*(n+2) ) {
 	  n += 1;
@@ -198,7 +176,6 @@ document.getElementById('no-scroll-bar').addEventListener('scroll', function() {
 	  ele[n+2].className = 'focus-city';
 	  ele[n+3].className = 'almost-city';
 	  ele[n+4].className = 'edge-city';
-	  // console.log('%i raw, down scroll', n);
   } 
   else if( scr > wd*(n-1) && scr <= wd*n ) {
 	  n -= 1;
@@ -207,7 +184,6 @@ document.getElementById('no-scroll-bar').addEventListener('scroll', function() {
 	  ele[n+2].className = 'focus-city';
 	  ele[n+3].className = 'almost-city';
 	  ele[n+4].className = 'edge-city';
-	  // console.log('%i row, up scroll', n);
 };
 return n;
 });
@@ -217,12 +193,12 @@ document.querySelector("#contact li:last-child a").innerHTML = 'карьера �
 
 // ** Cities opacity, moving submenu to menu, removing it
 const suba = document.querySelectorAll('.sub-menu a');
-var pop = document.querySelectorAll('#cities > li > a > .popup');
+let pop = document.querySelectorAll('#cities > li > a > .popup');
 const anc = document.querySelectorAll('#cities > li > a');
-var tri = document.getElementsByClassName('triangle-left');
+let tri = document.getElementsByClassName('triangle-left');
 const subm  = document.getElementsByClassName('sub-menu');
 
-for (var i=0; i < anc.length; i++) {
+for (let i=0; i < anc.length; i++) {
 	ele[i].className = 'edge-city';
 	pop[i].textContent = suba[i].textContent;
 	anc[i].addEventListener('mouseover', function() { over(this) });
